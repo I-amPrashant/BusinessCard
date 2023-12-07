@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Poppins:wght@300&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      :root {
+        --background-color: #c8e6c9;
+        --card-background: #2e7d32;
+        --after-color: #e0e0e0;
+        --big-header: 49px;
+        --red-header: #e11d48;
+        --small-header: 42px;
+        --description-size: 16px;
+      }
+      body,
+      html {
+        height: 100vh;
+        background-color: var(--background-color);
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow-x: hidden;
+        padding: 0px;
+      }
+      #main-wrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+        height: 100%;
+        width: 100%;
+        border-radius: 0px;
+        box-shadow: 1px 1px 10px 5px rgb(13, 13, 13, 0.2);
+        overflow-x: hidden;
+        position: relative;
+      }
+      .contact-section {
+        background-color: var(--card-background);
+        color: rgb(253, 251, 251, 0.8);
+        padding: 40px 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        text-align: center;
+      }
+
+      .contact-section > div > img {
+        border-radius: 100%;
+        height: 150px;
+        width: 150px;
+      }
+
+      .icon-text-wrapper {
+        font-size: 18px;
+      }
+      .icon-img {
+        height: 16px;
+        width: 16px;
+      }
+      .contact-info {
+        margin-top: 7px;
+      }
+      .email-phone-div {
+        margin-top: 30px;
+        position: relative;
+      }
+      #spacer-div {
+        display: none;
+        height: 20px;
+        background-color: white;
+        width: calc(100% + 80px);
+        margin-left: -40px;
+        margin-top: 40px;
+      }
+      #find-me {
+        margin-top: 30px;
+      }
+      #icons-list {
+        display: inline-flex;
+        gap: 15px;
+        margin: 7px auto;
+      }
+      .otherInfo-section {
+        display: grid;
+        background-color: white;
+      }
+      .otherInfo-section::after {
+        content: "";
+        position: absolute;
+        height: 150px;
+        width: 150px;
+        border-radius: 100%;
+        background-color: var(--card-background);
+        position: absolute;
+        right: -72px;
+        top: -62px;
+      }
+      #image-section {
+        position: relative;
+      }
+      .otherInfo-section {
+        padding: 50px 10px 10px 10px;
+      }
+      #empty-div {
+        display: none;
+      }
+
+      #info-details {
+        display: flex;
+        gap: 30px;
+        flex-direction: column;
+      }
+      .box {
+        position: absolute;
+        background-color: var(--background-color);
+        display: none;
+      }
+      .box:nth-of-type(1) {
+        height: 30px;
+        width: 50px;
+        top: 125px;
+        left: 236px;
+        animation: topDown 2s ease-in-out alternate infinite;
+      }
+      @keyframes topDown{
+        from{
+          transform: translateY(15px);
+        }
+        to{
+          transform: translateY(0px);
+        }
+      }
+      .box:nth-of-type(2) {
+        height: 50px;
+        width: 70px;
+        top: 83px;
+        left: 489px;
+      }
+      .box:nth-of-type(3) {
+        height: 50px;
+        width: 50px;
+        bottom: 75px;
+        left: 307px;
+        animation: tilt 2s  ease-in-out  alternate infinite;
+      }
+      @keyframes tilt{
+        from{
+          transform: rotate(10deg);
+        }
+        to{
+          transform: rotate(-10deg);
+        }
+      }
+      @media (min-width: 420px) {
+        .contact-section * {
+          text-align: start;
+        }
+        .contact-section {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+        }
+        .contact-section > div > img {
+          height: 180px;
+          width: 180px;
+        }
+        #left-image {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding-right: 10px;
+        }
+        .otherInfo-section {
+          padding: 50px 30px 10px 30px;
+        }
+      }
+      @media (min-width: 700px) {
+        #main-wrapper {
+          border-radius: 30px;
+          grid-template-columns: 1fr 2fr;
+          height: 600px;
+          max-width: 1000px;
+        }
+        .contact-section {
+          grid-template-columns: 1fr;
+          padding: 5px 40px;
+        }
+        #left-image img {
+          height: 170px;
+          width: 170px;
+        }
+        #spacer-div {
+          display: block;
+        }
+        body {
+          padding: 10px;
+        }
+      }
+      @media (min-width: 1000px) {
+        #left-image {
+          position: absolute;
+          left: 260px;
+        }
+        #left-image img {
+          height: 400px;
+          width: 280px;
+          border-radius: 0;
+          object-fit: cover;
+        }
+        .otherInfo-section {
+          grid-template-columns: 1fr 2fr;
+          overflow: hidden;
+        }
+        #empty-div {
+          display: block;
+        }
+        .box {
+          display: block;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main-wrapper">
+      <div class="contact-section">
+        <div id="left-image">
+          <img src="photo.jpg" alt="my_pic" />
+        </div>
+
+        <div id="contact-part">
+          <div class="email-phone-div">
+            <div class="icon-text-wrapper">
+              <span
+                ><img
+                  class="icon-img"
+                  src="email-icon.svg"
+                  alt="email-icon" /></span
+              ><strong style="margin-left: 10px">Email</strong>
+            </div>
+            <p class="contact-info">airmax50cent@gmail.com</p>
+          </div>
+          <div class="email-phone-div">
+            <div class="icon-text-wrapper">
+              <span
+                ><img
+                  class="icon-img"
+                  src="phone-icon.svg"
+                  alt="phone-icon" /></span
+              ><strong style="margin-left: 10px">Phone</strong>
+            </div>
+            <p class="contact-info">+977 9849713189</p>
+          </div>
+          <div id="spacer-div"></div>
+          <div id="find-me">
+            <p><strong>Find me on</strong></p>
+            <div id="icons-list">
+              <a href="https://github.com/I-amPrashant">
+                <img src="github-icon.svg" alt="github-icon" />
+              </a>
+              <a href="https://github.com/I-amPrashant">
+                <img src="linkedin-icon.svg" alt="facebook-icon" />
+              </a>
+              <a href="https://github.com/I-amPrashant">
+                <img src="twitter-icon.svg" alt="twitter-icon" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="otherInfo-section">
+        <div id="empty-div"></div>
+        <div id="info-details">
+          <h1
+            style="
+              font-size: var(--big-header);
+              font-weight: 900;
+              line-height: 1;
+            "
+          >
+            <span style="color: var(--card-background)">PRASHANT</span
+            ><br />BARTAULA
+          </h1>
+
+          <h2 style="font-size: var(--description-size); font-weight: 800">
+            Frontend web developer
+          </h2>
+          <p style="margin-top: -10px; font-weight: 500">
+            I’m an experienced Fullstack Developer who’s all about making things
+            run smoothly for developers. I work closely with UX and design teams
+            to nail down the details and bring technical plans to life for
+            websites and apps. My focus is always on keeping the user and
+            developer experience top-notch.
+          </p>
+
+          <h2 style="font-size: var(--description-size); font-weight: 800">
+            Working with technologies:
+          </h2>
+          <div id="technology-list" style="margin-top: -10px; font-weight: 500">
+            <p style="margin-top: 10px">
+              <i class="bi bi-fire" style="color: red"></i>
+              <span style="margin-left: 7px">Javascript</span>
+            </p>
+            <p style="margin-top: 10px">
+              <i class="bi bi-filetype-jsx" style="color: blue"></i>
+              <span style="margin-left: 7px">React</span>
+            </p>
+            <p style="margin-top: 10px">
+              <i class="bi bi-filetype-css" style="color: skyblue"></i>
+              <span style="margin-left: 7px">Tailwind</span>
+            </p>
+            <p style="margin-top: 10px">
+              <i class="bi bi-filetype-html" style="color: orange"></i>
+              <span style="margin-left: 7px">HTML</span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <span class="box"></span>
+      <span class="box"></span>
+      <span class="box"></span>
+    </div>
+  </body>
+</html>
